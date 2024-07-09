@@ -10,15 +10,13 @@ class RegisterCustomPostTypes
      */
     public function __construct()
     {
-
         // Register post type "team"
         add_action('init', array($this, 'register_custom_post_type_team'));
         add_action('init', array($this, 'register_team_taxonomy'));
 
-    // Register post type "event"
+        // Register post type "event"
         add_action('init', array($this, 'register_custom_post_type_events'));
         add_action('init', array($this, 'register_events_taxonomy'));
-
     }
 
     // Register post type "team"
@@ -41,20 +39,21 @@ class RegisterCustomPostTypes
         );
     
         $args = array(
-            'labels'             	=> $labels,
-            'public'             	=> true,
-            'publicly_queryable' 	=> true,
-            'exclude_from_search'	=> true,
-            'show_ui'            	=> true,
-            'show_in_menu'       	=> true,
-            'query_var'          	=> true,
-            'rewrite'            	=> array( 'slug' => 'equipe' ),
-            'capability_type'    	=> 'post',
-            'has_archive'        	=> true,
-            'hierarchical'       	=> true,
-            'menu_position'      	=> 0,
-            'menu_icon'				=> 'dashicons-businessperson',
-            'supports'           	=> array( 'title', 'revisions')
+            'labels'              => $labels,
+            'public'              => true,
+            'publicly_queryable'  => true,
+            'exclude_from_search' => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'query_var'           => true,
+            'rewrite'             => array( 'slug' => 'equipe' ),
+            'capability_type'     => 'post',
+            'has_archive'         => true,
+            'hierarchical'        => true,
+            'menu_position'       => 0,
+            'menu_icon'           => 'dashicons-businessperson',
+            'supports'            => array( 'title', 'revisions', 'editor' ),
+            'show_in_rest'      => true
         );
         
         register_post_type( 'team', $args );
@@ -85,6 +84,7 @@ class RegisterCustomPostTypes
             'show_admin_column' => true,
             'query_var'         => true,
             'rewrite'           => array('slug' => 'categoria-equipe'),
+            'show_in_rest'      => true
         );
 
         register_taxonomy('team_category', array('team'), $args);
@@ -120,20 +120,21 @@ class RegisterCustomPostTypes
         );
     
         $args = array(
-            'labels'             	=> $labels,
-            'public'             	=> true,
-            'publicly_queryable' 	=> true,
-            'exclude_from_search'	=> true,
-            'show_ui'            	=> true,
-            'show_in_menu'       	=> true,
-            'query_var'          	=> true,
-            'rewrite'            	=> array( 'slug' => 'eventos' ),
-            'capability_type'    	=> 'post',
-            'has_archive'        	=> true,
-            'hierarchical'       	=> true,
-            'menu_position'      	=> 0,
-            'menu_icon'				=> 'dashicons-calendar-alt',
-            'supports'           	=> array( 'title', 'revisions')
+            'labels'              => $labels,
+            'public'              => true,
+            'publicly_queryable'  => true,
+            'exclude_from_search' => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'query_var'           => true,
+            'rewrite'             => array( 'slug' => 'eventos' ),
+            'capability_type'     => 'post',
+            'has_archive'         => true,
+            'hierarchical'        => true,
+            'menu_position'       => 0,
+            'menu_icon'           => 'dashicons-calendar-alt',
+            'supports'            => array( 'title', 'revisions', 'editor' ),
+            'show_in_rest'      => true
         );
         
         register_post_type( 'event', $args );
@@ -164,6 +165,7 @@ class RegisterCustomPostTypes
             'show_admin_column' => true,
             'query_var'         => true,
             'rewrite'           => array('slug' => 'categoria-evento'),
+            'show_in_rest'      => true
         );
 
         register_taxonomy('event_category', array('event'), $args);
