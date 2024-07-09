@@ -1,0 +1,16 @@
+{
+    "name": "acf/clients",
+    "title": "Clients",
+    "description": "A custom clients Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["clients", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

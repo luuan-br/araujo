@@ -1,0 +1,16 @@
+{
+    "name": "acf/publications",
+    "title": "publications",
+    "description": "A custom publications Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["publications", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

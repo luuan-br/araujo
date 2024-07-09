@@ -1,0 +1,16 @@
+{
+    "name": "acf/list-lawyer-practice-area",
+    "title": "list lawyer practice area",
+    "description": "A custom list lawyer practice area Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["list-lawyer-practice-area"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

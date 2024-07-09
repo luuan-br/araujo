@@ -1,0 +1,1 @@
+const container=document.getElementById("post-carousel"),options={enabled:!1,fill:!0,center:!1,Navigation:!1,slidesPerPage:"auto",breakpoints:{"(max-width: 992px)":{enabled:!0}}};container&&options&&new Carousel(container,options);

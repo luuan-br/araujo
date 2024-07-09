@@ -1,0 +1,16 @@
+{
+    "name": "acf/lawyers",
+    "title": "lawyers",
+    "description": "A custom lawyers Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["lawyers", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

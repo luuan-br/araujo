@@ -1,0 +1,16 @@
+{
+    "name": "acf/addrress",
+    "title": "addrress",
+    "description": "A custom addrress Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["addrress", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

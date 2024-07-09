@@ -1,0 +1,16 @@
+{
+    "name": "acf/newsletter",
+    "title": "Newsletter",
+    "description": "A custom newsletter Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["newsletter"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,0 +1,83 @@
+#event {
+    .thumbnail-event {
+        display: block;
+        border-radius: 4px 4px 0px 0px;
+        max-width: 700px;
+        height: auto;
+        overflow: hidden;
+
+        margin: 0 auto;
+    }
+
+    #pills-tab {
+        max-width: 700px;
+        justify-content: space-evenly;
+        margin: 0 auto;
+
+        .nav-item {
+            .nav-link.active {
+                background: #F45B06;
+            }
+
+            .area {
+                min-width: 147px;
+
+                &.active {
+                    .area__title {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    #pills-tabContent {
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+
+        p {
+            color: #828282;
+            font-family: Roboto;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .galery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .files {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .file {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                
+                text-decoration: none;
+                color: #4F4F4F;
+                font-family: Roboto;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+
+                span {
+                    color: #4F4F4F;
+                    font-family: Roboto;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "acf/latest-publications",
+    "title": "latest-publications",
+    "description": "A custom latest-publications Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["latest-publications"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

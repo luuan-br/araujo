@@ -1,0 +1,16 @@
+{
+    "name": "acf/logo-footer",
+    "title": "logo-footer",
+    "description": "A custom logo-footer Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["logo-footer", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

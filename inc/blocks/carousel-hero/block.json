@@ -1,0 +1,16 @@
+{
+    "name": "acf/carousel-hero",
+    "title": "Carousel Hero",
+    "description": "A custom Carousel Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["Carousel Hero", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

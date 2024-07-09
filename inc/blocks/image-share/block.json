@@ -1,0 +1,16 @@
+{
+    "name": "acf/image-share",
+    "title": "image share",
+    "description": "A custom image share Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["image-share", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

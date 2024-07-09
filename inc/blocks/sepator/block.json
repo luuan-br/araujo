@@ -1,0 +1,16 @@
+{
+    "name": "acf/sepator",
+    "title": "sepator",
+    "description": "A custom sepator Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["sepator"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

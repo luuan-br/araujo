@@ -1,0 +1,16 @@
+{
+    "name": "acf/areas-of-expertise-content",
+    "title": "areas-of-expertise-content",
+    "description": "A custom areas-of-expertise-content Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["areas-of-expertise-content"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

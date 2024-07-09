@@ -1,0 +1,16 @@
+{
+    "name": "acf/contact-content",
+    "title": "contact-content",
+    "description": "A custom contact-content Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["contact-content", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

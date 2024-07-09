@@ -1,0 +1,16 @@
+{
+    "name": "acf/social-midias",
+    "title": "social-midias",
+    "description": "A custom social-midias Hero block that uses ACF fields.",
+    "style": [ "file:./index.css" ],
+    "category": "design",
+    "icon": "admin-appearance",
+    "keywords": ["social-midias", "home"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
