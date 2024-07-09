@@ -18,6 +18,7 @@ class Functions {
 
   private function includes()
   {
+    require_once $this->include . "functions-post-type.php";
     require_once $this->include . "blocks/index.php";
     require_once $this->include . "theme.php";
     require_once $this->include . "enqueues.php";
