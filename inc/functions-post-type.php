@@ -46,13 +46,13 @@ class RegisterCustomPostTypes
             'show_ui'             => true,
             'show_in_menu'        => true,
             'query_var'           => true,
-            'rewrite'             => array( 'slug' => 'equipe' ),
+            'rewrite'             => array( 'slug' => 'equipe', 'with_front' => true, 'pages' => true, 'feeds' => true, ),
             'capability_type'     => 'post',
             'has_archive'         => true,
             'hierarchical'        => true,
             'menu_position'       => 0,
             'menu_icon'           => 'dashicons-businessperson',
-            'supports'            => array( 'title', 'revisions', 'editor' ),
+            'supports'            => array( 'title', 'revisions', 'editor', 'thumbnail', 'excerpt' ),
             'show_in_rest'      => true
         );
         
@@ -83,20 +83,20 @@ class RegisterCustomPostTypes
             'show_ui'           => true,
             'show_admin_column' => true,
             'query_var'         => true,
-            'rewrite'           => array('slug' => 'categoria-equipe'),
+            'rewrite'           => array('slug' => 'categoria-equipe', 'with_front' => false, 'hierarchical' => true,),
             'show_in_rest'      => true
         );
 
-        register_taxonomy('team_category', array('team'), $args);
+        register_taxonomy('team-category', array('team'), $args);
 
-        if (!term_exists('Sócios', 'team_category')) {
-            wp_insert_term('Sócios', 'team_category');
+        if (!term_exists('Sócios', 'team-category')) {
+            wp_insert_term('Sócios', 'team-category');
         }
-        if (!term_exists('Associados', 'team_category')) {
-            wp_insert_term('Associados', 'team_category');
+        if (!term_exists('Associados', 'team-category')) {
+            wp_insert_term('Associados', 'team-category');
         }
-        if (!term_exists('Estagiários', 'team_category')) {
-            wp_insert_term('Estagiários', 'team_category');
+        if (!term_exists('Estagiários', 'team-category')) {
+            wp_insert_term('Estagiários', 'team-category');
         }
     }
 
@@ -133,7 +133,7 @@ class RegisterCustomPostTypes
             'hierarchical'        => true,
             'menu_position'       => 0,
             'menu_icon'           => 'dashicons-calendar-alt',
-            'supports'            => array( 'title', 'revisions', 'editor' ),
+            'supports'            => array( 'title', 'revisions', 'editor', 'thumbnail', 'excerpt' ),
             'show_in_rest'      => true
         );
         
@@ -168,13 +168,13 @@ class RegisterCustomPostTypes
             'show_in_rest'      => true
         );
 
-        register_taxonomy('event_category', array('event'), $args);
+        register_taxonomy('event-category', array('event'), $args);
 
-        if (!term_exists('Cafés da manhã', 'event_category')) {
-            wp_insert_term('Cafés da manhã', 'event_category');
+        if (!term_exists('Cafés da manhã', 'event-category')) {
+            wp_insert_term('Cafés da manhã', 'event-category');
         }
-        if (!term_exists('Congressos e Seminários', 'event_category')) {
-            wp_insert_term('Congressos e Seminários', 'event_category');
+        if (!term_exists('Congressos e Seminários', 'event-category')) {
+            wp_insert_term('Congressos e Seminários', 'event-category');
         }
     }
 }

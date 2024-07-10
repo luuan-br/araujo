@@ -1,18 +1,26 @@
 .header-equipe {
-    .area {
-        min-width: 147px;
-        min-height: 98px;
+    .areas {
+        justify-content: center;
 
-        &.action,
-        &:hover {
-            background-color: #F45B06;
+        @media (max-width: 990px) {
+            justify-content: inherit;
+        }
 
-            & .area__title {
-                color: #fff;
-            }
+        .area {
+            min-width: 147px;
+            min-height: 98px;
 
-            & .area__icon {
-                filter: invert(1) grayscale(100%) brightness(200%);
+            &.action,
+            &:hover {
+                background-color: #F45B06;
+
+                & .area__title {
+                    color: #fff;
+                }
+
+                & .area__icon {
+                    filter: invert(1) grayscale(100%) brightness(200%);
+                }
             }
         }
     }
@@ -34,6 +42,12 @@
         margin-bottom: 40px;
         border-bottom: 1px solid #FAB183;
 
+        @media (max-width: 990px) {
+            flex-direction: column;
+            gap: 10px;
+            padding: 0;
+        }
+
         &+.lawyer {
             margin-top: 6px;
         }
@@ -47,6 +61,10 @@
             border-radius: 50%;
             overflow: hidden;
             background-color: #F45B06;
+
+            @media (max-width: 990px) {
+                display: none;
+            }
 
             .sigla {
                 color: #FFF;
@@ -68,6 +86,44 @@
 
         &__content {
             flex: 1;
+            
+            @media (max-width: 990px) {
+                display: grid;
+                grid-template-columns: 46px 1fr;
+                gap: 10px;
+            }
+
+            .icon {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-color: #F45B06;
+
+                @media (max-width: 990px) {
+                    display: flex;
+                }
+
+                .sigla {
+                    color: #FFF;
+                    text-align: center;
+                    font-family: Roboto;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 900;
+                    line-height: normal;
+                }
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
 
             .name {
                 color: #4F4F4F;
@@ -77,6 +133,10 @@
                 font-weight: 400;
                 line-height: normal;
                 text-transform: uppercase;
+
+                @media (max-width: 990px) {
+                    font-size: 16px;
+                }
             }
 
             .content {
@@ -86,6 +146,11 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
+
+                @media (max-width: 990px) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
 
                 strong {
                     color: #B45019;
@@ -104,6 +169,12 @@
             gap: 20px;
             min-width: 102px;
             margin-top: 20px;
+
+            @media (max-width: 990px) {
+                margin-top: 0;
+                flex-direction: row;
+                padding-bottom: 20px;
+            }
 
             a {
                 display: flex;

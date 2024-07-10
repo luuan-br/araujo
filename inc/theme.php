@@ -10,7 +10,7 @@ class Theme {
 
   function theme_support()
   {
-    add_theme_support('post-thumbnails', array('post', 'page'));
+    add_theme_support('post-thumbnails', array('post', 'page', 'event', 'team', ));
 
     // Add theme support for selective refresh for widgets.
     add_theme_support( 'customize-selective-refresh-widgets' );
