@@ -5,6 +5,17 @@
         position: relative;
         contain: layout;
 
+        @media (max-width: 992px) {
+            max-width: 100%;
+
+            .row {
+                & > * {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+
         &::after {
             position: absolute;
             left: 50%;
