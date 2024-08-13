@@ -11,9 +11,9 @@
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/default.webp'); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid">
                     <?php endif; ?>
                 </div>
-                <div class="shares d-none">
-                    <!-- Social Share Icons (if needed, otherwise remove this block) -->
-                </div>
+                <?php 
+                    include_once('inc/blocks/sharer/sharer.php')
+                ?>
             </div>
         </div>
     </div>

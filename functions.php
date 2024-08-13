@@ -31,7 +31,18 @@ class Functions {
         endif;
         return self::$instance;
     }
-  
+    
+    public function excerpt_title($limit, $str) {
+        $excerpt = explode(' ', $str, $limit);
+        if (count($excerpt)>=$limit) {
+            array_pop($excerpt);
+            $excerpt = implode(" ",$excerpt).'...';
+        } else {
+            $excerpt = implode(" ",$excerpt);
+        }
+        $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+        return $excerpt;
+    }
 }
 
 $Functions = new Functions();

@@ -49,7 +49,6 @@ class ACFBlocks {
         register_block_type( $this->blocks . '/map' );
         register_block_type( $this->blocks . '/newsletter' );
         register_block_type( $this->blocks . '/page-lawyers' );
-        register_block_type( $this->blocks . '/post-recognition' );
         register_block_type( $this->blocks . '/posts' );
         register_block_type( $this->blocks . '/publications' );
         register_block_type( $this->blocks . '/sepator' );
