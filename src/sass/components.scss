@@ -1,0 +1,38 @@
+// Barra de Separação para seções
+.separator{
+    width: 100%;
+    max-width: 100%;
+    min-height: 80px;
+    background-image: url(../images/bg-lines.png);
+}
+
+// Bloco de Posts Recentes
+#recent-posts {
+
+    h3{
+        font-size: 1.6em;
+        font-family: 'Roboto';
+        color: #828282;
+        font-weight: 400;
+    }
+
+    .recent-posts{
+        &-item{
+
+            border-color: #F45B06 !important;
+
+            h4{
+                font-family: 'Roboto';
+                font-size: 1em;
+                color: #828282;
+                margin: 0;
+            }
+            span{
+                font-family: 'Roboto';
+                font-size: 0.9em;
+                color: #444;
+                font-weight: bold;
+            }
+        }
+    }
+}

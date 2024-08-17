@@ -42,13 +42,13 @@ class CPT_Expertise
             'show_ui'             => true,
             'show_in_menu'        => true,
             'query_var'           => true,
-            'rewrite'             => array( 'slug' => 'area-de-atuacao', 'with_front' => true, 'pages' => true, 'feeds' => true, ),
+            'rewrite'             => array( 'slug' => 'area-de-atuacao', 'with_front' => true, 'feeds' => true, ),
             'capability_type'     => 'post',
-            'has_archive'         => false,
+            'has_archive'         => true,
             'hierarchical'        => true,
             'menu_position'       => 2,
             'menu_icon'           => 'dashicons-welcome-learn-more',
-            'supports'            => array('title', 'thumbnail', 'editor'),
+            'supports'            => array('title', 'editor'),
             'show_in_rest'        => true
         );
         

@@ -29,7 +29,7 @@ if( !class_exists('Enqueue') ) :
             wp_enqueue_style('carousel', '//cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css');
     
             // Default Files
-            wp_enqueue_style('style-all', $this->styles . 'style-all.min.css', '', '1.0');
+            wp_enqueue_style('style-all', $this->styles . 'style-all.min.css', '', '');
 
             if (is_single()) {
                 wp_enqueue_style('slick', $this->styles . 'slick.min.css', '', '1.0.0');
