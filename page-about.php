@@ -42,7 +42,7 @@
 
     $args = array(
         'post_type'      => 'post',
-        'posts_per_page' => 20,
+        'posts_per_page' => 15,
         'order'          => 'ASC',
         'category_name'  => 'reconhecimentos'
     );
