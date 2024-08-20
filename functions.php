@@ -31,7 +31,7 @@ class Functions {
         endif;
         return self::$instance;
     }
-  
+
 }
 
 $Functions = new Functions();

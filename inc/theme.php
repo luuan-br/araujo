@@ -12,6 +12,9 @@ class Theme {
         add_action('after_setup_theme', array($this, 'theme_support'));
         add_filter('body_class', array ($this, 'add_slug_body_class'));
         add_filter('query_vars', array($this, 'add_query_vars_filter'));
+        add_filter('upload_mimes', array($this, 'cc_mime_types'));
+        add_filter('wp_check_filetype_and_ext', array($this, 'check_filetype_and_ext'), 10, 5);
+        add_filter('get_the_archive_title', array($this, 'customize_archive_title' ), 10, 3);
 
         // Includes
         $this->cpts = get_template_directory() . '/' . 'inc/cpts/';
@@ -36,7 +39,7 @@ class Theme {
 
     public function theme_support()
     {
-        add_theme_support('post-thumbnails', array('post', 'page', 'event', 'team', ));
+        add_theme_support('post-thumbnails');
 
         // Add theme support for selective refresh for widgets.
         add_theme_support( 'customize-selective-refresh-widgets' );
@@ -76,6 +79,40 @@ class Theme {
     {
         $vars[] = "paged";
         return $vars;
+    }
+
+    public function cc_mime_types( $mimes ){
+        $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
+    }
+
+    public function check_filetype_and_ext ( $wp_check_filetype_and_ext, $file, $filename, $mimes, $real_mime ) {
+
+		if ( ! $wp_check_filetype_and_ext['type'] ) {
+
+			$check_filetype  = wp_check_filetype( $filename, $mimes );
+			$ext             = $check_filetype['ext'];
+			$type            = $check_filetype['type'];
+			$proper_filename = $filename;
+
+			if ( $type && 0 === strpos( $type, 'image/' ) && 'svg' !== $ext ) {
+				$ext  = false;
+				$type = false;
+			}
+
+			$wp_check_filetype_and_ext = compact( 'ext', 'type', 'proper_filename' );
+		}
+
+		return $wp_check_filetype_and_ext;
+
+	}
+
+    public function customize_archive_title( $title, $original_title ) {
+        if(is_category() || is_archive()){
+            $title = sprintf(__('%1$s', 'textdomain'), $original_title);
+        }
+
+        return $title;
     }
 }
 
