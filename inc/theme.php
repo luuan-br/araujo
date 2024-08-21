@@ -81,18 +81,6 @@ class Theme {
         return $vars;
     }
 
-    public function excerpt_title($limit, $str) {
-        $excerpt = explode(' ', $str, $limit);
-        if (count($excerpt)>=$limit) {
-            array_pop($excerpt);
-            $excerpt = implode(" ",$excerpt).'...';
-        } else {
-            $excerpt = implode(" ",$excerpt);
-        }
-        $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-        return $excerpt;
-    }
-
     public function cc_mime_types( $mimes ){
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;

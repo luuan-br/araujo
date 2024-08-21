@@ -1,66 +1,87 @@
-<?php get_header();?>
+<?php
+    /*
+    Template Name: Publicações
+    */
+?>
+<?php get_header(); ?>
 
-<main class="main">
-    <?php if (have_posts()): ?>
-        <?php while (have_posts()): the_post();?>
+<?php
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-            <?php the_content();?>
+    $args = array(
+        'post_type' => 'post',
+        'paged' => $paged,
+    );
 
-	    <?php endwhile;?>
-    <?php endif;?>
+    $publicacoes_query = new WP_Query($args);
+    $title = 'Últimas Publicações';
+?>
 
-    <?php 
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+<?php if ($publicacoes_query->have_posts()): ?>
 
-        $args = array(
-            'post_type' => 'post',
-            'paged' => $paged,
-            'order'   => 'ASC'
-        );
-
-        $query = new WP_Query( $args );                            
-    ?>
-
-    <div class="container" style="margin-top: 65px;">
+    <div class="container">
+        
         <div class="row">
-            <div class="col-12">
-                <?php if(!empty($title)): ?>
-                    <h1 class="sub-title mt-5"><?= $title ?></h1>
-                <?php endif; ?>
+        
+            <div class="col-12 mt-5 mb-3">
 
-                <?php if ( $query->have_posts() ): ?>
-                <div class="posts">
-                    <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                    <a class="post" href="<?= get_permalink(); ?>">
-                        <?php if( has_post_thumbnail() ): ?>
-                            <img src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= get_the_title(); ?>" class="post__image">
-                        <?php else: ?>
-                            <img src="<?= get_template_directory_uri() . '/assets/images/default.webp'; ?>" alt="<?= get_the_title(); ?>" class="post__image">
-                        <?php endif; ?>
+                <h2 class="sub-title mb-4"><?= $title; ?></h2>
+                
+                <div class="archive-posts">
 
-                        <div class="post__content">
-                            <div class="execpt">
-                                <?= get_the_excerpt(); ?>
-                            </div>
-                            
-                            <div class="date"><?= get_the_date( 'd/m/Y' ); ?></div>
+                    <?php while ($publicacoes_query->have_posts()): $publicacoes_query->the_post(); ?>
+                        <div class="card-post">
+                            <a href="<?= get_permalink(); ?>">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <img src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= get_the_title(); ?>" class="post__image">
+                                <?php else: ?>
+                                    <img src="<?= get_template_directory_uri() . '/assets/images/default.webp'; ?>" alt="<?= get_the_title(); ?>" class="post__image">
+                                <?php endif; ?>
+
+                                <div class="post__content">
+                                    <div class="execpt">
+                                        <?= get_the_excerpt(); ?>
+                                    </div>
+                                    <div class="date"><?= get_the_date('d/m/Y'); ?></div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
                     <?php endwhile; ?>
-                </div>
-                <?php else : ?>                      
-                    <p>Nenhum post encontrado.</p>
-                <?php endif;?>
 
-                <div class="btn btn-load-more-posts">
-                    <span>Carregar mais notícias</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.32828 10.5741C9.70942 10.9197 10.2906 10.9197 10.6717 10.5741L19.183 2.85655C19.6207 2.45966 19.6207 1.77183 19.183 1.37494L18.3384 0.609083C17.9573 0.263488 17.3761 0.263488 16.9949 0.609083L10.6717 6.34265C10.2906 6.68825 9.70942 6.68825 9.32828 6.34265L3.00506 0.609083C2.62392 0.263487 2.04275 0.263486 1.66161 0.609083L0.816989 1.37494C0.379285 1.77183 0.379285 2.45966 0.816989 2.85655L9.32828 10.5741Z" fill="#F45B06"/>
-                    </svg>
+                </div>
+
+            </div>
+
+            <div class="col-12">
+                <div class="archive-navigation">
+                    <?php 
+                        echo paginate_links(
+                            array(
+                                'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                                'total' => $publicacoes_query->max_num_pages,
+                                'current' => max(1, get_query_var('paged')),
+                                'format' => '?paged=%#%',
+                                'show_all' => false,
+                                'type' => 'plain',
+                                'end_size' => 2,
+                                'mid_size' => 1,
+                                'prev_next' => true,
+                                'prev_text' => sprintf('<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.01728 8.91983C0.671689 9.30097 0.67169 9.88214 1.01729 10.2633L8.73488 18.7746C9.13177 19.2123 9.8196 19.2123 10.2165 18.7746L10.9823 17.9299C11.3279 17.5488 11.3279 16.9676 10.9823 16.5865L5.24878 10.2633C4.90318 9.88214 4.90318 9.30097 5.24878 8.91983L10.9823 2.59661C11.3279 2.21547 11.3279 1.6343 10.9823 1.25316L10.2165 0.408541C9.8196 -0.0291634 9.13177 -0.0291634 8.73488 0.408541L1.01728 8.91983Z" fill="#F45B06"/></svg>'),
+                                'next_text' => sprintf('<svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.9827 10.263C11.3283 9.88189 11.3283 9.30072 10.9827 8.91959L3.26512 0.408297C2.86823 -0.029407 2.1804 -0.0294064 1.78351 0.408298L1.01765 1.25292C0.672057 1.63406 0.672057 2.21523 1.01765 2.59636L6.75122 8.91959C7.09682 9.30072 7.09682 9.88189 6.75122 10.263L1.01765 16.5863C0.672058 16.9674 0.672057 17.5486 1.01765 17.9297L1.78351 18.7743C2.1804 19.212 2.86823 19.212 3.26512 18.7743L10.9827 10.263Z" fill="#F45B06"/></svg>'),
+                                'add_args' => false,
+                                'add_fragment' => '',
+                            )
+                        );
+                    ?>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
 
-<?php get_footer();?>
+        </div>
+
+    </div>
+
+<?php endif; ?>
+
+<?php wp_reset_postdata(); ?>
+
+<?php get_footer(); ?>
