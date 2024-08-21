@@ -1,3 +1,4 @@
+<?php $language = apply_filters( 'wpml_current_language', NULL ); ?>
   <div id="footer">
     <div class="container">
       <div class="row py-4">
@@ -56,7 +57,7 @@
         </div>
 
         <div class="col-12 col-lg mt-4 mt-lg-0">
-          <div class="h3 text-center text-lg-start">redes sociais</div>
+          <div class="h3 text-center text-lg-start"><?php if($language == 'en'): ?>Social Networks<?php else: ?>Redes Sociais<?php endif; ?></div>
           
           <?php if ( is_active_sidebar( 'redes_sociais' ) ) : ?>                            
             <ul class="social justify-content-center justify-content-lg-start mt-3 mt-lg-0">
@@ -72,7 +73,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12">
-          <p class="copy-text text-center m-0 py-2">©<strong>2020-2024 | ARAUJO E POLICASTRO</strong> <span class="d-none d-lg-inline-block">-</span><br class="d-lg-none" /> Todos os direitos reservados.</p>
+          <p class="copy-text text-center m-0 py-2">©<strong>2020-2024 | ARAUJO E POLICASTRO</strong> <span class="d-none d-lg-inline-block">-</span><br class="d-lg-none" /> <?php if($language == 'en'): ?>All rights reserved.<?php else: ?>Todos os direitos reservados.<?php endif; ?></p>
         </div>
       </div>
     </div>

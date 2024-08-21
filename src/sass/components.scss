@@ -36,3 +36,126 @@
         }
     }
 }
+
+// Banner
+#banner{
+    ul{
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
+
+        li{
+            list-style: none !important;
+        }
+    }
+
+    .glide__slides{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .glide__bullets{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        top: -60px;
+
+        button {
+            width: 10px;
+            height: 10px;
+            border: none;
+            border-radius: 50%;
+            background-color: #FFF;
+        }
+
+        .glide__bullet--active{
+            background-color: #F45B06;
+        }
+    }
+
+    .banner{
+
+        position: relative;
+
+        &-image{
+            width: 100%;
+        }
+
+        &-mobile{
+            display: block;
+        }
+
+        &-desktop{
+            display: none;
+        }
+
+        @media(min-width: 768px){
+            &-mobile{
+                display: none;
+            }
+    
+            &-desktop{
+                display: block;
+            }
+        }
+
+        &-content{
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            bottom: 40px;
+            padding: 10px;
+
+            @media(min-width: 1024px){
+                bottom: 60px;
+            }
+
+            p{
+                color: #FFF;
+                &:first-child{
+                    font-size: 18px;
+                }
+                font-size: 16px;
+                text-align: center;
+
+                @media(min-width:1024px){
+                    &:first-child{
+                        font-size: 26px;
+                    }
+                    font-size: 22px;
+                }
+            }
+
+            a{
+                display: inline-block;
+                padding: 8px 6px;
+                min-width: 120px;
+                font-size: 16px;
+                background-color: transparent;
+                border-radius: 40px;
+                border: solid thin #FFF;
+                text-align: center;
+                color: #FFF;
+                text-decoration: none !important;
+
+                @media(min-width: 1024px){
+                    min-width: 150px;
+                    font-size: 18px;
+                }
+
+                &:hover{
+                    background-color: #F45B06;
+                }
+
+                &:active{
+                    background-color: #e98047;
+                }
+            }
+        }
+    }
+}

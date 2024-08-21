@@ -47,6 +47,11 @@ if( !class_exists('Enqueue') ) :
             
             // carousel
             wp_enqueue_script('carousel', '//cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js', array(), '1.0', true);
+
+            if(is_front_page()):
+                wp_enqueue_script('glide', '//cdn.jsdelivr.net/npm/@glidejs/glide', array(), '1.1', true);
+                wp_enqueue_script('script-home', $this->scripts . 'script-home.js', '', '1.1', true);
+            endif;
     
             // Default Files
             wp_enqueue_script('product', $this->scripts . 'slides.js', array('carousel', 'fancybox'), '1.0', true);
@@ -59,6 +64,10 @@ if( !class_exists('Enqueue') ) :
                 wp_enqueue_script('slick', $this->scripts . 'slick.min.js', '', '1.0', true);
                 wp_enqueue_script('script-single-js', $this->scripts . 'script-single.js', array('slick'), null, true);
             }
+
+            if(is_archive('equipe')) :
+                wp_enqueue_script('script-lawyers', $this->scripts . 'script-lawyers.js', '', '1.0', true);
+            endif;
         }
     }
     
