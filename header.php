@@ -10,11 +10,11 @@
 	<?php elseif( is_category() ) : ?>
 		<title><?php single_cat_title(); ?></title>
 	<?php elseif( is_search() ) : ?>
-		<title><?php if($language == 'en'): ?>Results for:<?php else: ?>Resultados para:<?php endif; ?> <?= get_search_query() ?></title>
+		<title>Resultado por <?= get_search_query() ?></title>
 	<?php elseif( is_404() ) : ?>
-		<title><?php if($language == 'en'): ?>Page not found<?php else: ?>Página não encontrada<?php endif; ?></title>
+		<title>Página não encontrada</title>
 	<?php else : ?>
-		<title><?php bloginfo( 'name' ); ?> - <?php echo get_the_title(); ?></title>
+		<title><?php bloginfo( 'name' ); ?> - <?= the_title() ?></title>
 	<?php endif; ?>
 
   <!-- favicon -->
@@ -28,7 +28,6 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php $language = apply_filters( 'wpml_current_language', NULL ); ?>
 	<div id="header" class="d-none d-lg-flex">
 		<div class="container ">
 			<div class="row align-items-center">
@@ -56,7 +55,7 @@
 				</div>
 
 				<form id="search" action="<?= home_url( '/' ); ?>" method="get" id="search" class="col-auto" role="search">
-                    <input class="form-control" name="s" type="search" placeholder="<?php if($language == 'en'): ?>What are you looking for?<?php else: ?>O que você procura?<?php endif; ?>" aria-label="Search">
+                    <input class="form-control" name="s" type="search" placeholder="Busque em nosso site" aria-label="Search">
                     <button class="btn btn-search" type="submit">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 							<path d="M12.1094 7.39344C11.8938 7.39344 11.7188 7.56777 11.7188 7.78257C11.7188 7.99737 11.8938 8.1717 12.1094 8.1717C12.325 8.1717 12.5 7.99737 12.5 7.78257C12.5 7.56777 12.325 7.39344 12.1094 7.39344Z" fill="#F45B06"/>
@@ -68,7 +67,10 @@
 				</form>
 
 				<div class="col-auto">
-					<?php do_action('wpml_add_language_selector'); ?>
+					<a id="lenguage" href="#">
+						<img src="<?= get_template_directory_uri() . '/assets/images/usa-flag.png'?>" alt="">
+						<span>English</span>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -126,7 +128,10 @@
 				</div>
 
 				<div class="col-auto">
-					<?php do_action('wpml_add_language_selector'); ?>
+					<a id="lenguage" href="#">
+						<img src="<?= get_template_directory_uri() . '/assets/images/usa-flag.png'?>" alt="">
+						<span>English</span>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -137,7 +142,7 @@
 			<div class="row align-items-center">
 				<div class="col">
 					<form id="search" action="<?= home_url( '/' ); ?>" method="get" id="search" class="col-auto" role="search">
-						<input class="form-control" name="s" type="search" placeholder="<?php if($language == 'en'): ?>What are you looking for?<?php else: ?>O que você procura?<?php endif; ?>" aria-label="Search">
+						<input class="form-control" name="s" type="search" placeholder="Busque em nosso site" aria-label="Search">
 						<button class="btn btn-search" type="submit">
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 								<path d="M12.1094 7.39344C11.8938 7.39344 11.7188 7.56777 11.7188 7.78257C11.7188 7.99737 11.8938 8.1717 12.1094 8.1717C12.325 8.1717 12.5 7.99737 12.5 7.78257C12.5 7.56777 12.325 7.39344 12.1094 7.39344Z" fill="#F45B06"/>

@@ -1,8 +1,6 @@
 <?php get_header();?>
 
-    <?php
-        $language = apply_filters( 'wpml_current_language', NULL );
-
+    <?php 
         $args = array(
             'taxonomy'   => 'cargos',
             'hide_empty' => false,
@@ -70,6 +68,8 @@
        
     ?>
 
+
+
     <?php if ($lawyers->have_posts()): ?>
         <section id="lawyers" class="container border-top border-1 pt-4 pt-4">
             <div class="row">
@@ -91,9 +91,9 @@
                                     endif;
                                 ?>
                                 <div class="col-12 mt-2 mb-2">
-                                    <div class="d-flex flex-row flex-wrap justify-content-start align-items-start align-items-md-center lawyers-item">
-                                        <div class="lawyers-item-image">
-                                            <a href="<?php echo get_the_permalink(); ?>">
+                                    <a href="<?php echo get_the_permalink(); ?>">
+                                        <div class="d-flex flex-row flex-wrap justify-content-start align-items-start align-items-md-center lawyers-item">
+                                            <div class="lawyers-item-image">
                                                 <?php $photo = get_the_post_thumbnail_url(); ?>
                                                 <?php if($photo != ""): ?>
                                                     <div class="lawyers-item-image-photo" style="background-image: url(<?php echo $photo ?>);"></div>
@@ -101,32 +101,30 @@
                                                     <?php $acronym = lawyer_acronym1(get_the_title()); ?>
                                                     <div class="lawyers-item-image-acronym"><?php echo $acronym; ?></div>
                                                 <?php endif; ?>
-                                            </a>
-                                        </div>
-                                        
-                                        <div class="lawyers-item-content">
-                                            <a href="<?php echo get_the_permalink(); ?>">
+                                            </div>
+                                            
+                                            <div class="lawyers-item-content">
                                                 <h2><?php echo get_the_title(); ?></h2>
-                                            </a>
-                                            <p><span><?php if($language == 'en') : ?>Expertise:<?php else: ?>Áreas de atuação:<?php endif; ?> </span><?php echo $expertises; ?></p>
-                                        </div>
-                                        
-                                        <div class="lawyers-item-icons">
-                                            <?php $vcard = get_field('team_vcard', get_the_ID()); ?>
-                                            <?php if($vcard != "") : ?>
-                                                <div class="lawyers-item-icons-vcard" data-bs-toggle="modal" data-bs-target="#vcardModal" data-vcard="<?php echo $vcard ?>">
+                                                <p><span>Áreas de atuação: </span><?php echo $expertises; ?></p>
+                                            </div>
+                                            
+                                            <div class="lawyers-item-icons">
+                                                <div class="lawyers-item-icons-vcard">
                                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-v-card.png'; ?>">
                                                     <span>VCard</span>
                                                 </div>
-                                            <?php endif;?>
-                                            <a href="<?php echo get_the_permalink(); ?>">
+
                                                 <div class="lawyers-item-icons-profile">
                                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-doc.png'; ?>">
-                                                    <span><?php if($language == 'en') : ?>See profile<?php else: ?>Ver perfil<?php endif; ?></span>
+                                                    <span>Ver perfil</span>
                                                 </div>
-                                            </a>
+                                                
+                                                
+                                            </div>
+
+
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             <?php endwhile;?>
                         </div>
@@ -137,30 +135,6 @@
     <?php endif;?>
     <?php wp_reset_postdata(); ?>
 
-    <!-- Modal -->
-    <div class="modal fade" id="vcardModal" tabindex="-1" aria-labelledby="vcardModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="vcardModalLabel">V-Card</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex flex-column align-items-center justify-content-center">
-                    <img id="vcard-general" src="" />
-                    <p class="mt-4">
-                        <?php if($language == 'en') : ?>
-                            Read QR Code to get vcard data
-                        <?php else: ?>
-                            Leia o QR Code para ver os dados do VCard
-                        <?php endif; ?>
-                    </p>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php if($language == 'en') : ?>Close<?php else: ?>Fechar<?php endif; ?></button>
-                </div>
-            </div>
-        </div>
-    </div>    
+    
 
 <?php get_footer();?>

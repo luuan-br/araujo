@@ -1,1 +1,0 @@
-window.addEventListener("load",e=>{new Glide("#banner-publications .glide",{perView:1}).mount()});

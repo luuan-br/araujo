@@ -100,13 +100,13 @@
                             <?php while ($lawyers->have_posts()): $lawyers->the_post();?>
                                 <div data-expertise="<?php echo get_the_ID(); ?>" class="col-12 col-md-6 mt-2 mb-2">
                                     <a href="<?php echo get_the_permalink(); ?>">
-                                        <div class="d-flex flex-row justify-content-start align-items-center related-lawyers-item">
+                                        <div class="d-flex flex-row justify-content-start align-items-center related-lawyers">
                                             <?php $photo = get_the_post_thumbnail_url(); ?>
                                             <?php if($photo != ""): ?>
-                                                <div class="related-lawyers-item-photo" style="background-image: url(<?php echo $photo ?>);"></div>
+                                                <div class="related-lawyers-photo" style="background-image: url(<?php echo $photo ?>);"></div>
                                             <?php else: ?>
                                                 <?php $acronym = lawyer_acronym(get_the_title()); ?>
-                                                <div class="related-lawyers-item-acronym"><?php echo $acronym; ?></div>
+                                                <div class="related-lawyers-acronym"><?php echo $acronym; ?></div>
                                             <?php endif; ?>
                                             <h5><?php echo get_the_title(); ?></h5>
                                         </div>

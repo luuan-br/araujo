@@ -1,14 +1,12 @@
 <?php get_header();?>
 
-    <?php $language = apply_filters( 'wpml_current_language', NULL ); ?>
-
     <section id="expertise" class="content container mt-4 mb-4">
         <div class="row">
             <div class="col-12">
                 <div class="container-fluid ">
                     <div class="row">
                         <div class="col-12">
-                            <h1><?php if($language == 'en') : ?>Expertise<?php else: ?>Áreas de atuação<?php endif; ?></h1>
+                            <h1><?php the_archive_title(); ?></h1>
                         </div>
                     </div>
                 </div>
@@ -52,7 +50,7 @@
                     <div class="container-fluid ">
                         <div class="row">
                             <div class="col-12">
-                                <h3><?php if($language == 'en') : ?>Last posts<?php else: ?>Últimas publicações<?php endif; ?></h3>
+                                <h3>Últimas publicações</h3>
                             </div>
                         </div>
                     </div>
